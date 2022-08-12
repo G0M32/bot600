@@ -7112,10 +7112,10 @@ if (isBanChat) return replay(mess.banChat)
 let yts = require("yt-search")
 let search = await yts(text)
 let anu = search.videos[Math.floor(Math.random() * search.videos.length)]
-//let ytvc = await hx.youtube(anu.url)
+let ytvc = await hx.youtube(anu.url)
 let buttons = [
-{buttonId: `ytvd ${anu.url}`, buttonText: {displayText: '► Video'}, type: 1},
-{buttonId: `ytad ${anu.url}`, buttonText: {displayText: '♫ Audio'}, type: 1}
+{buttonId: `ytvd ${ytvc.link}`, buttonText: {displayText: '► Video'}, type: 1},
+{buttonId: `ytad ${ytvc.mp3}`, buttonText: {displayText: '♫ Audio'}, type: 1}
 ]
 let buttonMessage = {
 image: { url: anu.thumbnail },
@@ -7194,9 +7194,7 @@ break
 case 'ytvd': {
    if (isBan) return replay(mess.ban)	 			
 if (isBanChat) return replay(mess.banChat)
-let anu = fetchJson(`https://britanic-apis.herokuapp.com/docs/download/ytmp3?url=${args[0]}&apikey=ConfuMods`)
-
-cnf.sendMessage(from, {video:{url:anu.video}, mimetype:"video/mp4", caption:"Listo✔️", contextInfo:{externalAdreplay:{
+cnf.sendMessage(from, {video:{url:args[0]}, mimetype:"video/mp4", caption:"Listo✔️", contextInfo:{externalAdreplay:{
 title:`${global.botname}`,
 body:`${global.botname}`,
 thumbnail: log0,
@@ -7209,8 +7207,7 @@ break
 case 'ytad': {
    if (isBan) return replay(mess.ban)	 			
 if (isBanChat) return replay(mess.banChat)
-let anu = fetchJson(`https://britanic-apis.herokuapp.com/docs/download/ytmp3?url=${args[0]}&apikey=ConfuMods`)
-cnf.sendMessage(from, {audio:{url:anu.musica}, mimetype:"audio/mp4", ptt:true, contextInfo:{externalAdreplay:{
+cnf.sendMessage(from, {audio:{url:args[0]}, mimetype:"audio/mp4", ptt:true, contextInfo:{externalAdreplay:{
 title:`${global.botname}`,
 body:`${global.botname}`,
 thumbnail: log0,
