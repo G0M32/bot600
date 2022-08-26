@@ -39,7 +39,7 @@ global.socialm = "GitHub: Confusion245"
 global.location = "America, Santiago, Chile" 
 
 //bot bomdy 
-global.owner = ['56999448163']
+global.owner = ['947196935']
 global.ownertag = '56999448163' 
 global.botname = '𝐂𝙾𝙽𝙵𝚄•𝐁𝙾𝚃-𝐌𝙳 𝐕5' 
 global.linkz = "https://youtube.com/c/ConfuMods" 
